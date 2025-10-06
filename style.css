@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
-    color: #333; /* Default text color soft black */
+    color: #333; 
     background-color: #f4f4f4;
     line-height: 1.6;
 }
@@ -15,23 +15,36 @@ body {
 }
 
 h1, h2, h3 {
-    color: #000; /* Pure black font for headings */
+    color: #000; 
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* --- Header & Navigation (Yellow Theme) --- */
+/* --- Header & Navigation (Yellow/Black Theme) --- */
 header {
-    background: #FFD700; /* Bright Yellow Theme Color */
+    background: #FFD700; 
     color: #000;
     padding: 10px 0;
     border-bottom: 3px solid #000;
 }
 
-header h1 {
+/* LOGO AREA STYLING */
+.logo-area {
     float: left;
+    display: flex;
+    align-items: center; 
+}
+
+.header-logo {
+    height: 40px; 
+    width: auto;
+    margin-right: 10px; 
+}
+
+header h1 {
     margin: 0;
     color: #000;
+    font-size: 1.8em; 
 }
 
 header nav {
@@ -43,6 +56,9 @@ header nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    /* Phone number aur links ko ek line mein laane ke liye */
+    display: flex; 
+    align-items: center;
 }
 
 header nav ul li {
@@ -55,23 +71,41 @@ header nav a {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 header nav a:hover {
     color: #333; 
 }
 
-/* --- Hero Section (Image Background with Overlay) --- */
+/* 🚨 PHONE NUMBER STYLING 🚨 */
+.phone-number a {
+    /* Phone number ko thoda alag dikhane ke liye */
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-right: 15px; /* Links se duri banayein */
+    white-space: nowrap; /* Taki number wrap na ho */
+}
+
+.phone-number a:hover {
+    background-color: #000;
+    color: #FFD700;
+}
+
+/* --- Hero Section (Unchanged) --- */
 .hero {
     position: relative; 
     color: #fff;
     padding: 100px 0;
     text-align: center;
-    border-bottom: 5px solid #FFD700; 
+    border-bottom: 5px solid #000; /* Darker border for contrast */
     overflow: hidden; 
 }
 
-/* Background Image */
 .hero::before { 
     content: '';
     position: absolute;
@@ -79,13 +113,11 @@ header nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    /* 🚨 APNI IMAGE KA NAAM YAHAN DALEIN 🚨 */
     background: url('moving.jpg') no-repeat center center/cover; 
-    filter: brightness(0.6); /* Image ko thoda dark karein */
+    filter: brightness(0.6); 
     z-index: -2; 
 }
 
-/* Semi-Transparent Grey Overlay (25% opacity) */
 .hero::after { 
     content: '';
     position: absolute;
@@ -93,7 +125,7 @@ header nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.25); /* Grey/Black overlay with 25% opacity */
+    background-color: rgba(0, 0, 0, 0.25); 
     z-index: -1; 
 }
 
@@ -103,7 +135,7 @@ header nav a:hover {
 }
 
 .hero h2 {
-    color: #FFD700; /* Yellow Heading */
+    color: #FFD700; 
     font-size: 3em;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
@@ -130,7 +162,7 @@ header nav a:hover {
     background: #EEDD82; 
 }
 
-/* --- Services Section --- */
+/* --- Services Section (Unchanged) --- */
 .services {
     padding: 50px 0;
     text-align: center;
@@ -149,13 +181,13 @@ header nav a:hover {
     border-top: 4px solid #FFD700; 
     padding: 20px;
     margin: 10px;
-    width: 22%; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
-    /* Sliding Effect Setup */
+    width: 28%; 
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative; 
     overflow: hidden; 
-    height: 140px; /* Initial height to show heading + one line of text */
+    height: 180px; 
     
     transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
 }
@@ -163,49 +195,46 @@ header nav a:hover {
 .service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    height: 160px; /* Hover par height badha di */
+    height: 200px; 
+}
+
+.service-icon {
+    width: 60px; 
+    height: 60px; 
+    display: block; 
+    margin: 0 auto 10px auto; 
 }
 
 .service-item h3 {
     color: #000;
     margin-top: 0;
-    margin-bottom: 5px; /* H3 aur P ke beech ka margin kam kiya */
+    margin-bottom: 5px;
     height: 40px; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Sliding Text/Details */
 .service-item p {
-    /* VISIBILITY FIX: Position relative se text h3 ke neeche hi shuru hoga */
     position: relative; 
-    
     width: 100%;
     padding: 0; 
     box-sizing: border-box; 
     margin: 0;
-    
-    /* Text hamesha visible rahega */
     opacity: 1; 
     transform: translateY(0); 
-    
-    /* Smooth Transition for the slide-up effect */
     transition: opacity 0.3s ease, transform 0.3s ease; 
-    
     color: #000; 
     text-align: center;
     line-height: 1.2; 
 }
 
-/* Hover State: Slide the text up slightly */
 .service-item:hover p {
     opacity: 1; 
-    transform: translateY(-5px); /* Slide up to be near the h3 */
+    transform: translateY(-5px); 
 }
 
-
-/* --- Contact Section (Yellow Background) --- */
+/* --- Contact Section (Unchanged) --- */
 .contact {
     background: #FFD700; 
     color: #000;
@@ -222,7 +251,7 @@ header nav a:hover {
     font-weight: bold;
 }
 
-/* --- Footer --- */
+/* --- Footer (Unchanged) --- */
 footer {
     background: #000; 
     color: #fff;
@@ -234,15 +263,78 @@ footer p {
     margin: 0;
 }
 
-/* --- Media Queries for Responsiveness --- */
+/* 🚨 FLOATING WHATSAPP STYLING 🚨 */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366; /* WhatsApp Green */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000; /* Baaki sabke upar dikhe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float a {
+    color: #FFF;
+    text-decoration: none;
+    line-height: 60px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* --- Media Queries (Responsiveness) --- */
+@media(max-width: 1200px) {
+    .service-item {
+        width: 30%;
+    }
+}
+
+@media(max-width: 900px) {
+    .service-item {
+        width: 45%;
+    }
+}
+
 @media(max-width: 768px) {
-    header h1, header nav, header nav ul {
+    /* Mobile screen par adjustments */
+    header h1, header nav, header nav ul, .logo-area {
         float: none;
         text-align: center;
+        display: block; 
+        margin: 0 auto;
+    }
+    
+    .logo-area {
+        display: flex; 
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    header nav ul {
+        flex-direction: column; /* Mobile par list items ko vertical rakhe */
     }
 
     header nav li {
-        padding: 0 10px;
+        padding: 5px 0;
+    }
+    
+    .phone-number a {
+        margin-right: 0;
+        margin-bottom: 10px; /* Link ke beech thoda space */
     }
 
     .hero {
@@ -256,5 +348,13 @@ footer p {
     .service-item {
         width: 90%;
         margin: 10px auto;
+    }
+    
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
     }
 }
